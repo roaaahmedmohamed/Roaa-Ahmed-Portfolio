@@ -1,0 +1,53 @@
+.nav-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 64px;
+  padding: 0 clamp(22px, 5vw, 74px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(18px);
+}
+
+.brand-mark {
+  display: grid;
+  width: 34px;
+  height: 34px;
+  place-items: center;
+  border: 1px solid rgba(255, 207, 230, 0.55);
+  border-radius: 50%;
+  color: #ffe4f1;
+  font-family: Georgia, serif;
+  font-size: 19px;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 0 28px rgba(255, 119, 184, 0.32);
+}
+
+.nav-links {
+  display: flex;
+  gap: clamp(16px, 4vw, 56px);
+}
+
+.nav-links a {
+  color: rgba(255, 239, 249, 0.74);
+  font-size: 0.82rem;
+  text-decoration: none;
+  transition:
+    color 180ms ease,
+    transform 180ms ease;
+}
+
+.nav-links a:hover {
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+@media (max-width: 760px) {
+  .nav-bar {
+    padding-inline: 18px;
+  }
+
+  .nav-links {
+    gap: 16px;
+  }
+}

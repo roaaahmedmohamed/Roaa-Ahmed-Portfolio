@@ -1,0 +1,78 @@
+.training-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr) minmax(180px, 0.55fr);
+  gap: 14px;
+  max-width: 980px;
+  align-items: stretch;
+}
+
+.training-column {
+  display: grid;
+  gap: 14px;
+}
+
+.training-card,
+.language-card {
+  position: relative;
+  min-height: 132px;
+  padding: 20px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 8px;
+  background:
+    linear-gradient(135deg, rgba(255, 147, 197, 0.16), rgba(93, 210, 188, 0.08)),
+    rgba(255, 255, 255, 0.045);
+  transition:
+    transform 220ms ease,
+    border-color 220ms ease,
+    background 220ms ease;
+}
+
+.training-card:hover,
+.language-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(255, 166, 210, 0.45);
+  background:
+    linear-gradient(135deg, rgba(255, 147, 197, 0.22), rgba(93, 210, 188, 0.13)),
+    rgba(255, 255, 255, 0.065);
+}
+
+.training-card p,
+.language-card p {
+  margin: 0;
+  color: #8ce2d2;
+  font-size: 0.76rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.training-card h3 {
+  margin: 8px 0;
+  color: #fff;
+  font-size: 1.15rem;
+}
+
+.training-card strong {
+  display: inline-flex;
+  margin-bottom: 8px;
+  color: #ffe88a;
+  font-size: 0.84rem;
+}
+
+.training-card span,
+.language-card span {
+  color: rgba(255, 239, 249, 0.67);
+  font-size: 0.93rem;
+}
+
+.language-card {
+  display: grid;
+  align-content: start;
+  gap: 10px;
+}
+
+@media (max-width: 760px) {
+  .training-grid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,57 @@
+.scroll-top-button {
+  position: fixed;
+  right: clamp(18px, 4vw, 34px);
+  bottom: clamp(18px, 4vw, 34px);
+  z-index: 20;
+  display: grid;
+  width: 46px;
+  height: 46px;
+  place-items: center;
+  border: 1px solid rgba(255, 216, 236, 0.38);
+  border-radius: 50%;
+  background:
+    linear-gradient(135deg, rgba(255, 139, 194, 0.92), rgba(143, 93, 255, 0.92)),
+    rgba(24, 6, 33, 0.88);
+  color: #ffffff;
+  cursor: pointer;
+  opacity: 0;
+  pointer-events: none;
+  box-shadow:
+    0 18px 38px rgba(0, 0, 0, 0.34),
+    0 0 24px rgba(255, 143, 197, 0.3);
+  transform: translateY(14px) scale(0.9);
+  transition:
+    opacity 220ms ease,
+    transform 220ms ease,
+    box-shadow 220ms ease;
+}
+
+.scroll-top-button.is-visible {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0) scale(1);
+  animation: scrollTopFloat 2.6s ease-in-out infinite;
+}
+
+.scroll-top-button:hover {
+  animation-play-state: paused;
+  box-shadow:
+    0 22px 44px rgba(0, 0, 0, 0.4),
+    0 0 34px rgba(255, 143, 197, 0.46);
+  transform: translateY(-3px) scale(1);
+}
+
+.scroll-top-button:focus-visible {
+  outline: 2px solid #ffd8ea;
+  outline-offset: 3px;
+}
+
+.scroll-top-button svg {
+  width: 24px;
+  height: 24px;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 2.4;
+}

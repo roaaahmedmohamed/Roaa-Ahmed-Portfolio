@@ -1,0 +1,75 @@
+.portrait-card {
+  display: grid;
+  width: 112px;
+  aspect-ratio: 1;
+  place-items: center;
+  border: 1px solid rgba(255, 216, 236, 0.34);
+  border-radius: 8px;
+  background:
+    linear-gradient(145deg, rgba(255, 240, 248, 0.22), rgba(156, 72, 142, 0.2)),
+    rgba(255, 255, 255, 0.06);
+  box-shadow:
+    0 18px 46px rgba(0, 0, 0, 0.4),
+    0 0 42px rgba(255, 136, 190, 0.26);
+  animation: floatCard 5s ease-in-out infinite;
+}
+
+.portrait-face {
+  position: relative;
+  width: 64px;
+  height: 76px;
+}
+
+.hair,
+.face,
+.blush {
+  position: absolute;
+  display: block;
+}
+
+.hair {
+  inset: 0 5px 18px;
+  border-radius: 32px 32px 22px 22px;
+  background: #23111f;
+}
+
+.face {
+  inset: 20px 12px 5px;
+  border-radius: 26px 26px 20px 20px;
+  background: linear-gradient(180deg, #ffd8cf, #f5aa9f);
+}
+
+.face::before,
+.face::after {
+  position: absolute;
+  top: 20px;
+  width: 5px;
+  height: 5px;
+  content: '';
+  border-radius: 50%;
+  background: #2c1723;
+}
+
+.face::before {
+  left: 13px;
+}
+
+.face::after {
+  right: 13px;
+}
+
+.blush {
+  top: 47px;
+  width: 12px;
+  height: 6px;
+  border-radius: 999px;
+  background: rgba(255, 119, 155, 0.55);
+}
+
+.blush.left {
+  left: 10px;
+}
+
+.blush.right {
+  right: 10px;
+}

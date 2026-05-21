@@ -1,0 +1,220 @@
+.portfolio-shell {
+  position: relative;
+  width: min(100%, 1180px);
+  min-height: 100vh;
+  margin: 0 auto;
+  overflow: hidden;
+  border-inline: 1px solid rgba(255, 255, 255, 0.08);
+  background:
+    radial-gradient(circle at 18% 9%, rgba(255, 137, 190, 0.18), transparent 24rem),
+    radial-gradient(circle at 82% 28%, rgba(96, 211, 190, 0.14), transparent 22rem),
+    linear-gradient(180deg, #17061f 0%, #100418 42%, #1a0824 100%);
+  color: #f9edf6;
+}
+
+.portfolio-shell::before {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  content: '';
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+  background-size: 76px 76px;
+  mask-image: linear-gradient(to bottom, black, transparent 72%);
+}
+
+.nav-bar,
+.hero-section,
+.section-block,
+.orbital-section,
+.contact-section {
+  position: relative;
+  z-index: 1;
+}
+
+.section-block {
+  padding: 42px clamp(22px, 6vw, 96px);
+}
+
+.intro-block,
+.training-section,
+.experience-section,
+.orbital-section,
+.project-section,
+.contact-section {
+  content-visibility: auto;
+  contain-intrinsic-size: 1px 640px;
+}
+
+.reveal-section {
+  opacity: 0;
+  transform: translateY(34px);
+  transition:
+    opacity 700ms ease,
+    transform 700ms ease;
+  will-change: opacity, transform;
+}
+
+.reveal-section.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+  will-change: auto;
+}
+
+.reveal-section .experience-card,
+.reveal-section .training-card,
+.reveal-section .language-card,
+.reveal-section .project-row,
+.reveal-section .contact-method,
+.reveal-section .tech-node {
+  opacity: 0;
+  transform: translateY(18px);
+  transition:
+    opacity 620ms ease,
+    transform 620ms ease;
+}
+
+.reveal-section.is-visible .experience-card,
+.reveal-section.is-visible .training-card,
+.reveal-section.is-visible .language-card,
+.reveal-section.is-visible .project-row,
+.reveal-section.is-visible .contact-method,
+.reveal-section.is-visible .tech-node {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-section.is-visible .experience-card:nth-child(2),
+.reveal-section.is-visible .training-column:nth-child(2) .training-card,
+.reveal-section.is-visible .project-row:nth-child(2),
+.reveal-section.is-visible .contact-method:nth-child(2),
+.reveal-section.is-visible .tech-node:nth-of-type(5) {
+  transition-delay: 90ms;
+}
+
+.reveal-section.is-visible .experience-card:nth-child(3),
+.reveal-section.is-visible .language-card,
+.reveal-section.is-visible .project-row:nth-child(3),
+.reveal-section.is-visible .contact-method:nth-child(3),
+.reveal-section.is-visible .tech-node:nth-of-type(7) {
+  transition-delay: 160ms;
+}
+
+.reveal-section.is-visible .experience-card:nth-child(4),
+.reveal-section.is-visible .project-row:nth-child(4),
+.reveal-section.is-visible .tech-node:nth-of-type(9) {
+  transition-delay: 230ms;
+}
+
+@keyframes floatCard {
+  0%,
+  100% {
+    transform: translateY(0) rotate(-2deg);
+  }
+
+  50% {
+    transform: translateY(-12px) rotate(2deg);
+  }
+}
+
+@keyframes riseIn {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes orbitPulse {
+  0%,
+  100% {
+    opacity: 0.5;
+    transform: rotateX(67deg) scale(1);
+  }
+
+  50% {
+    opacity: 1;
+    transform: rotateX(67deg) scale(1.08);
+  }
+}
+
+@keyframes breathe {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.08);
+  }
+}
+
+@keyframes drift {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-18px);
+  }
+}
+
+@keyframes techFloat {
+  0%,
+  100% {
+    margin-top: 0;
+  }
+
+  50% {
+    margin-top: -8px;
+  }
+}
+
+@keyframes scrollTopFloat {
+  0%,
+  100% {
+    translate: 0 0;
+  }
+
+  50% {
+    translate: 0 -7px;
+  }
+}
+
+@media (max-width: 760px) {
+  .portfolio-shell {
+    border: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 1ms !important;
+  }
+
+  .reveal-section,
+  .reveal-section .experience-card,
+  .reveal-section .training-card,
+  .reveal-section .language-card,
+  .reveal-section .project-row,
+  .reveal-section .contact-method,
+  .reveal-section .tech-node {
+    transform: none !important;
+  }
+
+  .scroll-top-button.is-visible {
+    animation: none !important;
+  }
+}

@@ -1,0 +1,24 @@
+.intro-block {
+  display: grid;
+  justify-items: center;
+  padding-top: 10px;
+  text-align: center;
+}
+
+.intro-block p {
+  max-width: 680px;
+  color: rgba(255, 239, 249, 0.72);
+}
+
+.intro-block p + p {
+  margin-top: 12px;
+}
+
+.intro-block h2 {
+  max-width: 760px;
+  margin: 10px 0 12px;
+  color: #fff7fb;
+  font-size: clamp(1.75rem, 4vw, 3.2rem);
+  line-height: 1.04;
+  letter-spacing: 0;
+}

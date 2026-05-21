@@ -1,0 +1,441 @@
+.orbital-section {
+  display: grid;
+  gap: 18px;
+  place-items: center;
+  min-height: 520px;
+  padding: 56px 22px 72px;
+}
+
+.orbital-heading {
+  width: min(100%, 980px);
+  padding-inline: clamp(0px, 3vw, 24px);
+  text-align: center;
+}
+
+.orbital-heading .section-heading {
+  margin-bottom: 10px;
+}
+
+.orbital-heading p {
+  max-width: 620px;
+  margin: 0 auto;
+  color: rgba(255, 239, 249, 0.68);
+}
+
+.soft-note {
+  color: rgba(255, 239, 249, 0.64);
+  font-size: 0.9rem;
+}
+
+.orbit-stage {
+  position: relative;
+  display: grid;
+  width: min(88vw, 620px);
+  aspect-ratio: 1.48;
+  place-items: center;
+}
+
+.orbit {
+  position: absolute;
+  border: 1px solid rgba(255, 209, 233, 0.3);
+  border-radius: 50%;
+  transform: rotateX(67deg);
+  animation: orbitPulse 4.5s ease-in-out infinite;
+}
+
+.orbit-one {
+  width: 78%;
+  height: 70%;
+}
+
+.orbit-two {
+  width: 60%;
+  height: 52%;
+  animation-delay: 500ms;
+}
+
+.orbit-three {
+  width: 43%;
+  height: 36%;
+  border-color: rgba(140, 226, 210, 0.34);
+  animation-delay: 1s;
+}
+
+.center-sigil {
+  position: relative;
+  z-index: 3;
+  display: grid;
+  width: 72px;
+  height: 72px;
+  place-items: center;
+  border: 1px solid rgba(255, 213, 235, 0.55);
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 28%, #ffd8ea, #9a4fff 48%, #3a0b52 100%);
+  color: #fff;
+  font-family: Georgia, serif;
+  font-size: 2.2rem;
+  box-shadow:
+    0 0 34px rgba(255, 143, 197, 0.65),
+    0 0 80px rgba(143, 93, 255, 0.45);
+  animation: breathe 3s ease-in-out infinite;
+}
+
+.tech-node {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.tech-arrow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 1;
+  width: var(--ray);
+  height: 2px;
+  pointer-events: none;
+  border-radius: 999px;
+  background: linear-gradient(90deg, rgba(255, 188, 223, 0.98), rgba(255, 156, 204, 0.9));
+  box-shadow:
+    0 0 10px rgba(255, 156, 204, 0.55),
+    0 0 18px rgba(143, 93, 255, 0.22);
+  transform: translate(var(--start-x), var(--start-y)) rotate(var(--angle));
+  transform-origin: left center;
+}
+
+.tech-arrow::after {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  z-index: 2;
+  width: 9px;
+  height: 9px;
+  content: '';
+  border-radius: 50%;
+  background: #ffd8ea;
+  box-shadow:
+    0 0 8px rgba(255, 156, 204, 0.9),
+    0 0 16px rgba(255, 156, 204, 0.45);
+  transform: translateY(-50%);
+}
+
+.tech-badge {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 104px;
+  min-height: 44px;
+  padding: 8px 12px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 8px;
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.18), rgba(255, 255, 255, 0.07)),
+    rgba(24, 6, 33, 0.9);
+  color: #fff7fb;
+  font-size: 0.78rem;
+  font-weight: 800;
+  box-shadow:
+    0 18px 40px rgba(0, 0, 0, 0.3),
+    0 0 22px rgba(255, 143, 197, 0.12);
+  backdrop-filter: blur(12px);
+  pointer-events: auto;
+  transform: translate(calc(-50% + var(--x)), calc(-50% + var(--y)));
+  animation: techFloat 5.4s ease-in-out infinite;
+  animation-delay: var(--delay);
+  transition:
+    transform 180ms ease,
+    border-color 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.tech-badge:hover {
+  transform: translate(calc(-50% + var(--x)), calc(-50% + var(--y) - 4px));
+  border-color: rgba(255, 166, 210, 0.5);
+  box-shadow:
+    0 22px 48px rgba(0, 0, 0, 0.34),
+    0 0 28px rgba(255, 143, 197, 0.22);
+}
+
+.tech-badge img {
+  flex: 0 0 auto;
+  width: 28px;
+  height: 28px;
+}
+
+.tech-github img,
+.tech-next img {
+  padding: 4px;
+  border-radius: 50%;
+  background: #ffffff;
+}
+
+.tech-html {
+  --x: -260px;
+  --y: -130px;
+  --start-x: -38px;
+  --start-y: -19px;
+  --ray: 196px;
+  --angle: 207deg;
+  --delay: 0ms;
+}
+
+.tech-css {
+  --x: -72px;
+  --y: -184px;
+  --start-x: -14px;
+  --start-y: -39px;
+  --ray: 106px;
+  --angle: 246deg;
+  --delay: 120ms;
+}
+
+.tech-js {
+  --x: 112px;
+  --y: -170px;
+  --start-x: 24px;
+  --start-y: -32px;
+  --ray: 128px;
+  --angle: 309deg;
+  --delay: 240ms;
+}
+
+.tech-ts {
+  --x: 270px;
+  --y: -76px;
+  --start-x: 39px;
+  --start-y: -10px;
+  --ray: 172px;
+  --angle: 345deg;
+  --delay: 360ms;
+}
+
+.tech-bootstrap {
+  --x: 258px;
+  --y: 88px;
+  --start-x: 39px;
+  --start-y: 13px;
+  --ray: 160px;
+  --angle: 18deg;
+  --delay: 480ms;
+}
+
+.tech-tailwind {
+  --x: 74px;
+  --y: 180px;
+  --start-x: 18px;
+  --start-y: 36px;
+  --ray: 108px;
+  --angle: 64deg;
+  --delay: 600ms;
+}
+
+.tech-github {
+  --x: -108px;
+  --y: 170px;
+  --start-x: -24px;
+  --start-y: 32px;
+  --ray: 126px;
+  --angle: 127deg;
+  --delay: 720ms;
+}
+
+.tech-react {
+  --x: -270px;
+  --y: 62px;
+  --start-x: -40px;
+  --start-y: 9px;
+  --ray: 176px;
+  --angle: 168deg;
+  --delay: 840ms;
+}
+
+.tech-next {
+  --x: -286px;
+  --y: -40px;
+  --start-x: -40px;
+  --start-y: -5px;
+  --ray: 186px;
+  --angle: 188deg;
+  --delay: 960ms;
+}
+
+@media (max-width: 760px) {
+  .orbital-section {
+    min-height: 900px;
+    padding-block: 54px 82px;
+  }
+
+  .orbit-stage {
+    display: grid;
+    width: min(94vw, 390px);
+    height: 760px;
+    aspect-ratio: auto;
+    padding-top: 0;
+    place-items: center;
+  }
+
+  .orbit-one {
+    width: 92%;
+    height: 58%;
+  }
+
+  .orbit-two {
+    width: 72%;
+    height: 44%;
+  }
+
+  .orbit-three {
+    width: 50%;
+    height: 30%;
+  }
+
+  .center-sigil {
+    position: relative;
+    top: auto;
+    left: auto;
+    transform: none;
+  }
+
+  .tech-node {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+  }
+
+  .tech-arrow {
+    display: block;
+  }
+
+  .tech-badge {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(calc(-50% + var(--x)), calc(-50% + var(--y))) !important;
+    min-width: 98px;
+    width: auto;
+    min-height: 40px;
+    padding: 7px 10px;
+    font-size: 0.72rem;
+    animation: techFloat 5.4s ease-in-out infinite;
+  }
+
+  .tech-badge:hover {
+    transform: translate(calc(-50% + var(--x)), calc(-50% + var(--y) - 4px)) !important;
+  }
+
+  .tech-badge img {
+    width: 24px;
+    height: 24px;
+  }
+
+  .tech-html {
+    --x: -116px;
+    --y: -300px;
+    --start-x: -13px;
+    --start-y: -39px;
+    --ray: 246px;
+    --angle: 248deg;
+  }
+
+  .tech-css {
+    --x: 116px;
+    --y: -300px;
+    --start-x: 13px;
+    --start-y: -39px;
+    --ray: 246px;
+    --angle: 292deg;
+  }
+
+  .tech-js {
+    --x: -118px;
+    --y: -212px;
+    --start-x: -19px;
+    --start-y: -36px;
+    --ray: 158px;
+    --angle: 242deg;
+  }
+
+  .tech-ts {
+    --x: 118px;
+    --y: -212px;
+    --start-x: 19px;
+    --start-y: -36px;
+    --ray: 158px;
+    --angle: 298deg;
+  }
+
+  .tech-bootstrap {
+    --x: -124px;
+    --y: -122px;
+    --start-x: -33px;
+    --start-y: -23px;
+    --ray: 104px;
+    --angle: 226deg;
+  }
+
+  .tech-tailwind {
+    --x: 124px;
+    --y: -122px;
+    --start-x: 33px;
+    --start-y: -23px;
+    --ray: 104px;
+    --angle: 314deg;
+  }
+
+  .tech-github {
+    --x: -124px;
+    --y: 150px;
+    --start-x: -29px;
+    --start-y: 28px;
+    --ray: 128px;
+    --angle: 126deg;
+  }
+
+  .tech-react {
+    --x: 124px;
+    --y: 150px;
+    --start-x: 29px;
+    --start-y: 28px;
+    --ray: 128px;
+    --angle: 54deg;
+  }
+
+  .tech-next {
+    --x: 0;
+    --y: 310px;
+    --start-x: 0;
+    --start-y: 40px;
+    --ray: 246px;
+    --angle: 90deg;
+  }
+
+  .tech-next .tech-badge {
+    transform: translate(-50%, 310px) !important;
+  }
+
+  .tech-next .tech-badge:hover {
+    transform: translate(-50%, 306px) !important;
+  }
+
+  .tech-next .tech-arrow {
+    width: 246px;
+    transform: translate(0, 40px) rotate(90deg);
+  }
+
+  .tech-arrow::after {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #ffd8ea;
+    box-shadow:
+      0 0 0 3px rgba(255, 216, 234, 0.12),
+      0 0 10px rgba(255, 156, 204, 0.95),
+      0 0 20px rgba(255, 156, 204, 0.5);
+    transform: translateY(-50%);
+  }
+}
